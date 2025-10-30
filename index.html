@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portais Fiscais - Página Inicial</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0077cc" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a3c9f9, #dbe9ff);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #fff;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+
+    .tab {
+      padding: 15px 20px;
+      border: none;
+      background: none;
+      text-align: left;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab:hover {
+      background-color: #f0f0f0;
+    }
+
+    .federal { color: #0077cc; }
+    .estadual { color: #00994d; }
+    .municipal { color: #ff9933; }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #002f5e;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .active {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 12px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #004080;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #002f5e;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        box-shadow: none;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <button class="tab federal" onclick="openTab('federal')"><i class="fa-solid fa-building-columns"></i> Federal</button>
+    <button class="tab estadual" onclick="openTab('estadual')"><i class="fa-solid fa-percent"></i> Estadual</button>
+    <button class="tab municipal" onclick="openTab('municipal')"><i class="fa-solid fa-city"></i> Municipal</button>
+  </nav>
+
+  <main class="main">
+    <h1>Portais Fiscais</h1>
+
+    <div id="federal" class="content active">
+      <ul>
+        <li><a href="https://cav.receita.fazenda.gov.br" target="_blank"><i class="fa-solid fa-building-columns"></i> eCAC</a></li>
+        <li><a href="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao2.asp" target="_blank"><i class="fa-solid fa-id-card"></i> Comprovante CNPJ</a></li>
+        <li><a href="https://www.gov.br/receitafederal/pt-br" target="_blank"><i class="fa-solid fa-globe"></i> Receita Federal</a></li>
+        <li><a href="https://regularize.pgfn.gov.br/" target="_blank"><i class="fa-solid fa-scale-balanced"></i> Regularize</a></li>
+        <li><a href="https://www.gov.br/empresas-e-negocios/pt-br/redesim" target="_blank"><i class="fa-solid fa-briefcase"></i> Redesim</a></li>
+        <li><a href="https://www.gov.br/receitafederal/pt-br/assuntos/simples-nacional" target="_blank"><i class="fa-solid fa-diagram-project"></i> Simples Nacional</a></li>
+        <li><a href="https://consultaoptantes.fgts.caixa.gov.br/" target="_blank"><i class="fa-solid fa-magnifying-glass"></i> FGTS</a></li>
+        <li><a href="https://www.tst.jus.br/certidao" target="_blank"><i class="fa-solid fa-file-circle-check"></i> Certidão Trabalhista</a></li>
+        <li><a href="https://meu.inss.gov.br/" target="_blank"><i class="fa-solid fa-person"></i> Meu INSS</a></li>
+        <li><a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank"><i class="fa-solid fa-store"></i> Empreendedor</a></li>
+        <li><a href="https://fgtsdigital.sistema.gov.br/portal/login" target="_blank"><i class="fa-solid fa-money-bill"></i> FGTS Digital</a></li>
+        <li><a href="https://login.esocial.gov.br/login.aspx" target="_blank"><i class="fa-solid fa-gear"></i> eSocial</a></li>
+      </ul>
+    </div>
+
+    <div id="estadual" class="content">
+      <ul>
+        <li><a href="https://www.sefaz.ba.gov.br/contribuinte/cadastro/" target="_blank"><i class="fa-solid fa-user-check"></i> Cadastro Sefaz</a></li>
+        <li><a href="https://www.sefaz.ba.gov.br/dae" target="_blank"><i class="fa-solid fa-file-invoice-dollar"></i> DAE</a></li>
+        <li><a href="https://www.juceb.ba.gov.br/regin" target="_blank"><i class="fa-solid fa-network-wired"></i> REGIN</a></li>
+        <li><a href="https://www.sefaz.ba.gov.br/icms" target="_blank"><i class="fa-solid fa-percent"></i> ICMS</a></li>
+        <li><a href="https://www.sefaz.ba.gov.br/certidao" target="_blank"><i class="fa-solid fa-file-shield"></i> Certidão Estadual</a></li>
+      </ul>
+    </div>
+
+    <div id="municipal" class="content">
+      <ul>
+        <li><a href="https://camacan.saatri.com.br/Autenticacao/Index" target="_blank"><i class="fa-solid fa-city"></i> SAATRI NFS-e</a></li>
+        <li><a href="https://www.webtributos.com.br/certidao" target="_blank"><i class="fa-solid fa-file-contract"></i> Certidão Municipal</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    function openTab(tabName) {
+      document.querySelectorAll('.content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.getElementById(tabName).classList.add('active');
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registrado!'));
+    }
+  </script>
+</body>
+</html>
